@@ -102,9 +102,12 @@ if you see similar error message after running ``npm run rpc-example``, it means
 **How To Fix:**
 
 Change ``max-transaction-time`` to more than ``15000`` in your ``config.ini``
-```
+```shell
 nano ./inery-node/inery.setup/master.node/blockchain/config/config.ini
 ```
+
+Thanks to **Kairos#2656**!
+
 
 #### 2. Error : connect ECONNREFUSED NODE_IP_ADDRESS:8888
 
