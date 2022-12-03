@@ -83,3 +83,38 @@ Run RPC Example
 ```
 npm run rpc-example
 ```
+
+
+
+#### Successful Example
+
+if you see similar error message after running ``npm run rpc-example``, it means your transaction has been executed on blockchain using JsonRPC
+![](https://snipboard.io/JQ1hnc.jpg)
+
+
+
+## FAQ
+
+#### 1. Error : Serialization time limit 15000us exceeded:
+
+![](https://snipboard.io/a0drGN.jpg)
+
+**How To Fix:**
+
+Change ``max-transaction-time`` to more than ``15000`` in your ``config.ini``
+```
+nano ./inery-node/inery.setup/master.node/blockchain/config/config.ini
+```
+
+#### 2. Error : connect ECONNREFUSED NODE_IP_ADDRESS:8888
+
+![](https://snipboard.io/UgSMH2.jpg)
+
+**How To Fix:**
+
+Make sure your port **8888** is open, try to check it on [portchecker.co](https://portchecker.co/) , each vps will have different settings, usually you need to open the port using this command
+```
+sudo ufw allow 8888
+```
+
+else, make sure to open your port setting on your VPS provider dashboard
