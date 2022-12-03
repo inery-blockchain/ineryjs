@@ -2,9 +2,11 @@ import { Api, JsonRpc, RpcError, JsSignatureProvider } from '../dist/index.js'
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config()
 
-
+// our Node URL, when we first setup our node, inery has created our RPC in port :8888
+// check it on your node, /inery-node/inery.setup/tools/config.json HTTP_ADDRESS key
 const url = process.env.NODE_URL
-const json_rpc = new JsonRpc(url)
+
+const json_rpc = new JsonRpc(url) // create new JsonRPC using our node url
 const private_key = process.env.PRIVATE_KEY; // private key
 
 const account = process.env.INERY_ACCOUNT // Inery Smart Contract Account to Call
