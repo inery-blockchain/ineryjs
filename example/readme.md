@@ -12,11 +12,18 @@ JSON RPC Sample code are available at [example](https://github.com/alteregogi/in
 - Git
 - [Node.Js](https://nodejs.dev/en/)
 
+  - [Ubuntu Installation Tutorial](https://www.educative.io/answers/how-to-install-nodejs-on-ubuntu)
+
+  - [Windows Installation](https://nodejs.org/dist/v18.12.1/node-v18.12.1-x64.msi)
+
 - npm
 
+  - Ubuntu
+
   ```
-  npm install npm@latest -g
+  sudo apt install npm
   ```
+
 
 ### Installation
 
