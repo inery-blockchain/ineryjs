@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "doc": "jsdoc -c jsdoc.json",
-    "build-web": "webpack --config webpack.config.js"
+    "build-web": "webpack --config webpack.config.js",
+    "rpc-example": "node ./example/json-rpc.mjs"
   },
   "author": "Inery",
   "license": "MIT",
@@ -16,6 +17,7 @@
   "homepage": "https://git.webservice-host.net/ljubomirm/inery_module",
   "dependencies": {
     "bn.js": "^5.2.0",
+    "dotenv": "^16.0.3",
     "elliptic": "^6.5.4",
     "hash.js": "^1.1.7",
     "node-fetch": "^2.6.7",
