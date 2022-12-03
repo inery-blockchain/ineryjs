@@ -91,7 +91,7 @@ npm run rpc-example
 if you see similar error message after running ``npm run rpc-example``, it means your transaction has been executed on blockchain using JsonRPC
 ![](https://snipboard.io/JQ1hnc.jpg)
 
-
+image credit : **Zyprexh#0331**
 
 ## FAQ
 
