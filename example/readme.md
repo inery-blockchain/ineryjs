@@ -12,7 +12,28 @@ JSON RPC Sample code are available at [example](https://github.com/alteregogi/in
 - Git
 - [Node.Js](https://nodejs.dev/en/)
 
-  - [Ubuntu Installation Tutorial](https://www.educative.io/answers/how-to-install-nodejs-on-ubuntu)
+  - Ubuntu Installation Tutorial
+
+    Remove Previous Nodejs
+
+    ```
+    sudo apt-get remove nodejs
+    ```
+
+    Install Curl
+
+    ```
+    sudo apt-get install curl
+    ```
+
+    Install NodeJS
+
+    ```
+    curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
+    sudo apt-get install -y nodejs
+    ```
+
+    
 
   - [Windows Installation](https://nodejs.org/dist/v18.12.1/node-v18.12.1-x64.msi)
 
