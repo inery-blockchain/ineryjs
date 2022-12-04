@@ -121,3 +121,19 @@ sudo ufw allow 8888
 ```
 
 else, make sure to open your port setting on your VPS provider dashboard
+
+#### 3. Error: missing create.issuer ( type=name )
+
+It means that you doesn't have Valued Smart Contract on your account, which you created on Task 3.
+
+![](https://snipboard.io/aTBHL3.jpg)
+
+To check if you have your CRUD Smart Contract on your account
+
+```
+cline get abi your_inery_account
+```
+
+Make sure that you have this output on **actions** key
+
+![](https://snipboard.io/0vsnOq.jpg)
