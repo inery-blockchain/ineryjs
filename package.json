@@ -5,15 +5,16 @@
   "main": "dist/index.js",
   "scripts": {
     "doc": "jsdoc -c jsdoc.json",
+    "generate-docs": "jsdoc --configure jsdoc.json --verbose",
     "build-web": "webpack --config webpack.config.js"
   },
   "author": "Inery",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://git.webservice-host.net/ljubomirm/inery_module"
+    "url": "https://github.com/inery-blockchain/ineryjs"
   },
-  "homepage": "https://git.webservice-host.net/ljubomirm/inery_module",
+  "homepage": "https://github.com/inery-blockchain/ineryjs",
   "dependencies": {
     "bn.js": "^5.2.0",
     "elliptic": "^6.5.4",
@@ -25,6 +26,7 @@
     "browser-fs-access": "^0.31.0",
     "browserify": "^17.0.0",
     "buffer": "^6.0.3",
+    "clean-jsdoc-theme": "^4.1.7",
     "crypto-browserify": "^3.12.0",
     "https-browserify": "^1.0.0",
     "jsdoc": "^3.5.5",
