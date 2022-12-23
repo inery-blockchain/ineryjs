@@ -111,7 +111,24 @@
 * @property {ProducerScheduleType} [new_producers]
 * @property {Array<any>} header_extensions
 */
-
+/**
+ * @typedef {Object} GetTableByScopeArgs
+ * @property {string} code
+ * @property {string} table
+ * @property {any} [lower_bound]
+ * @property {any} [upper_bound]
+ * @property {number} [limit]
+ */
+/**
+ * @typedef {Object} GetTableRowsArgs
+ * @property {string} code
+ * @property {string} table
+ * @property {string} scope
+ * @property {boolean} [json]
+ * @property {any} [lower_bound]
+ * @property {any} [upper_bound]
+ * @property {number} [limit]
+ */
 /**
 * @typedef {Object} SignedHeader
 * @property {string} timestamp

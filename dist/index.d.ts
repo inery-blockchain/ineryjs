@@ -5,4 +5,7 @@ import * as Numeric from './ineryjs-numeric';
 import * as RpcInterfaces from './ineryjs-rpc-interfaces';
 import { RpcError } from './ineryjs-rpcerror';
 import * as Serialize from './ineryjs-serialize';
-export { Api, ApiInterfaces, JsonRpc, Numeric, RpcInterfaces, RpcError, Serialize };
+import { JsSignatureProvider, PrivateKey } from './ineryjs-jssig';
+import { PublicKey } from './ineryjs-jssig';
+import { PrivateKey } from './ineryjs-jssig';
+export { Api, ApiInterfaces, JsonRpc, Numeric, RpcInterfaces, RpcError, Serialize, JsSignatureProvider, PublicKey, PrivateKey };

@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function () { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __values = (this && this.__values) || function(o) {
+var __values = (this && this.__values) || function (o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
     if (o && typeof o.length === "number") return {
@@ -73,8 +73,9 @@ var arrayToHex = function (data) {
 /**
 * @class 
 */
-class JsonRpc{
+class JsonRpc {
     /**
+     * @summary For detailed RPC API documentation visit [Inery docs](https://docs.inery.io/).
      * @param {string} endpoint
      * @param {object} args
      * `fetch`:
@@ -87,11 +88,11 @@ class JsonRpc{
          * @type {string}
          */
         this.endpoint = endpoint.replace(/\/$/, '');
-        if (typeof global!="undefined" && global.fetch) {
+        if (typeof window != "undefined" && window?.fetch) {
             /**
              * @type {function}
              */
-            this.fetchBuiltin=global.fetch;
+            this.fetchBuiltin = window?.fetch;
         }
         else {
             this.fetchBuiltin = args.fetch || require("node-fetch");
@@ -104,7 +105,7 @@ class JsonRpc{
      * @param {string} [method=POST] HTTP method
      * @returns {Response}
     */
-    fetch(path, body,method="POST") {
+    fetch(path, body, method = "POST") {
         return __awaiter(this, void 0, void 0, function () {
             var response, json, f, e_2;
             return __generator(this, function (_a) {
@@ -112,13 +113,13 @@ class JsonRpc{
                     case 0:
                         _a.trys.push([0, 3, , 4]);
                         f = this.fetchBuiltin;
-                        let opts={
+                        let opts = {
                             body: JSON.stringify(body),
                             method
                         };
-                        if(this.endpoint.startsWith("https")){
-                            const https=require("https");
-                            opts.agent=new https.Agent({rejectUnauthorized:false});
+                        if (this.endpoint.startsWith("https")) {
+                            const https = require("https");
+                            opts.agent = new https.Agent({ rejectUnauthorized: false });
                         }
                         return [4 /*yield*/, f(this.endpoint + path, opts)];
                     case 1:
@@ -211,22 +212,6 @@ class JsonRpc{
         });
     };
     /** 
-     * @summary Raw call to `/v1/chain/get_accounts_by_authorizers`
-     * @param {string[]} accounts
-     * @param {string[]} keys
-     * @returns {Promise<GetAccountsByAuthorizersResult>}
-    */
-    get_accounts_by_authorizers(accounts, keys) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_accounts_by_authorizers', { accounts: accounts, keys: keys })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
      * @summary Raw call to `get_activated_protocol_features`
      * @param {GetActivatedProtocolFeaturesParams} _a 
      * @returns {Promise<GetActivatedProtocolFeaturesResult>}
@@ -258,21 +243,6 @@ class JsonRpc{
         });
     };
     /** 
-     * @summary Raw call to `/v1/chain/get_block_info` 
-     * @param {number} blockNum
-     * @returns {Promise<GetBlockInfoResult>}
-    */
-    get_block_info(blockNum) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_block_info', { block_num: blockNum })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
      * @summary Raw call to `/v1/chain/get_block`
      * @param {string|number} blockNumOrId
      * @returns {Promise<GetBlockResult>}
@@ -297,9 +267,9 @@ class JsonRpc{
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_code', {
-                            account_name: accountName,
-                            code_as_wasm: true
-                        })];
+                        account_name: accountName,
+                        code_as_wasm: true
+                    })];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -363,20 +333,6 @@ class JsonRpc{
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_info', {})];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/chain/get_producer_schedule` 
-     * @returns {Promise<GetProducerScheduleResult>}
-    */
-    get_producer_schedule() {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_producer_schedule', {})];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -456,6 +412,7 @@ class JsonRpc{
      * @param {boolean} [json]
      * @param {string} [lowerBound]
      * @param {string} [limit]
+     * @deprecated
      * @returns {Promise<GetScheduledTransactionsResult>}
     */
     get_scheduled_transactions(json, lowerBound, limit) {
@@ -473,7 +430,7 @@ class JsonRpc{
     };
     /** 
      * @summary Raw call to `/v1/chain/get_table_rows` 
-     * @param unknown
+     * @param {GetTableRowsArgs} obj
      * @returns {Promise<GetTableRowsResult>}
     */
     get_table_rows(_a) {
@@ -482,54 +439,26 @@ class JsonRpc{
             return __generator(this, function (_k) {
                 switch (_k.label) {
                     case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_table_rows', {
-                            json: json,
-                            code: code,
-                            scope: scope,
-                            table: table,
-                            lower_bound: lower_bound,
-                            upper_bound: upper_bound,
-                            index_position: index_position,
-                            key_type: key_type,
-                            limit: limit,
-                            reverse: reverse,
-                            show_payer: show_payer,
-                        })];
+                        json: json,
+                        code: code,
+                        scope: scope,
+                        table: table,
+                        lower_bound: lower_bound,
+                        upper_bound: upper_bound,
+                        index_position: index_position,
+                        key_type: key_type,
+                        limit: limit,
+                        reverse: reverse,
+                        show_payer: show_payer,
+                    })];
                     case 1: return [2 /*return*/, _k.sent()];
                 }
             });
         });
     };
     /** 
-     * @summary Raw call to `/v1/chain/get_kv_table_rows` 
-     * @param unknown
-     * @returns {Promise<GetTableRowsResult>}
-    */
-    get_kv_table_rows(_a) {
-        var _b = _a.json, json = _b === void 0 ? true : _b, code = _a.code, table = _a.table, index_name = _a.index_name, _c = _a.encode_type, encode_type = _c === void 0 ? 'bytes' : _c, index_value = _a.index_value, lower_bound = _a.lower_bound, upper_bound = _a.upper_bound, _d = _a.limit, limit = _d === void 0 ? 10 : _d, _e = _a.reverse, reverse = _e === void 0 ? false : _e, _f = _a.show_payer, show_payer = _f === void 0 ? false : _f;
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_g) {
-                switch (_g.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_kv_table_rows', {
-                            json: json,
-                            code: code,
-                            table: table,
-                            index_name: index_name,
-                            encode_type: encode_type,
-                            index_value: index_value,
-                            lower_bound: lower_bound,
-                            upper_bound: upper_bound,
-                            limit: limit,
-                            reverse: reverse,
-                            show_payer: show_payer,
-                        })];
-                    case 1: return [2 /*return*/, _g.sent()];
-                }
-            });
-        });
-    };
-    /** 
      * @summary Raw call to `/v1/chain/get_table_by_scope` 
-     * @param unknown
+     * @param {GetTableByScopeArgs} obj
      * @returns {Promise<GetTableByScopeResult>}
     */
     get_table_by_scope(_a) {
@@ -538,12 +467,12 @@ class JsonRpc{
             return __generator(this, function (_e) {
                 switch (_e.label) {
                     case 0: return [4 /*yield*/, this.fetch('/v1/chain/get_table_by_scope', {
-                            code: code,
-                            table: table,
-                            lower_bound: lower_bound,
-                            upper_bound: upper_bound,
-                            limit: limit,
-                        })];
+                        code: code,
+                        table: table,
+                        lower_bound: lower_bound,
+                        upper_bound: upper_bound,
+                        limit: limit,
+                    })];
                     case 1: return [2 /*return*/, _e.sent()];
                 }
             });
@@ -562,9 +491,9 @@ class JsonRpc{
                     case 0:
                         _a = ineryjs_numeric_1.convertLegacyPublicKeys;
                         return [4 /*yield*/, this.fetch('/v1/chain/get_required_keys', {
-                                transaction: args.transaction,
-                                available_keys: args.availableKeys,
-                            })];
+                            transaction: args.transaction,
+                            available_keys: args.availableKeys,
+                        })];
                     case 1: return [2 /*return*/, _a.apply(void 0, [(_b.sent()).required_keys])];
                 }
             });
@@ -581,37 +510,11 @@ class JsonRpc{
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0: return [4 /*yield*/, this.fetch('/v1/chain/push_transaction', {
-                            signatures: signatures,
-                            compression: compression,
-                            packed_context_free_data: arrayToHex(serializedContextFreeData || new Uint8Array(0)),
-                            packed_trx: arrayToHex(serializedTransaction),
-                        })];
-                    case 1: return [2 /*return*/, _c.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/chain/push_ro_transaction 
-     * @param {PushTransactionArgs} _a
-     * @param {boolean} [returnFailureTraces]
-     * @returns {Promise<ReadOnlyTransactResult>}
-    */
-    push_ro_transaction(_a, returnFailureTraces) {
-        var signatures = _a.signatures, _b = _a.compression, compression = _b === void 0 ? 0 : _b, serializedTransaction = _a.serializedTransaction;
-        if (returnFailureTraces === void 0) { returnFailureTraces = false; }
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/chain/push_ro_transaction', {
-                            transaction: {
-                                signatures: signatures,
-                                compression: compression,
-                                packed_context_free_data: arrayToHex(new Uint8Array(0)),
-                                packed_trx: arrayToHex(serializedTransaction),
-                            },
-                            return_failure_traces: returnFailureTraces,
-                        })];
+                        signatures: signatures,
+                        compression: compression,
+                        packed_context_free_data: arrayToHex(serializedContextFreeData || new Uint8Array(0)),
+                        packed_trx: arrayToHex(serializedTransaction),
+                    })];
                     case 1: return [2 /*return*/, _c.sent()];
                 }
             });
@@ -637,120 +540,6 @@ class JsonRpc{
                             };
                         });
                         return [4 /*yield*/, this.fetch('/v1/chain/push_transactions', packedTrxs)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Send a serialized transaction 
-     * @param {PushTransactionArgs} _a
-     * @returns {Promise<TransactResult>}
-    */
-    send_transaction(_a) {
-        var signatures = _a.signatures, _b = _a.compression, compression = _b === void 0 ? 0 : _b, serializedTransaction = _a.serializedTransaction, serializedContextFreeData = _a.serializedContextFreeData;
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_c) {
-                switch (_c.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/chain/send_transaction', {
-                            signatures: signatures,
-                            compression: compression,
-                            packed_context_free_data: arrayToHex(serializedContextFreeData || new Uint8Array(0)),
-                            packed_trx: arrayToHex(serializedTransaction),
-                        })];
-                    case 1: return [2 /*return*/, _c.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/db_size/get` 
-     * @returns {Promise<DBSizeGetResult>}
-    */
-    db_size_get() {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, this.fetch('/v1/db_size/get', {})];
-                case 1: return [2 /*return*/, _a.sent()];
-            }
-        }); });
-    };
-    /** 
-     * @summary Raw call to `/v1/trace_api/get_block` 
-     * @param {number} block_num
-     * @returns {Promise<TraceApiGetBlockResult>}
-    */
-    trace_get_block(block_num) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/trace_api/get_block', { block_num: block_num })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/history/get_actions`
-     * @param {string} accountName
-     * @param {number} [pos]
-     * @param {number} [offset]
-     * @returns {Promise<GetActionsResult>}
-    */
-    history_get_actions(accountName, pos, offset) {
-        if (pos === void 0) { pos = null; }
-        if (offset === void 0) { offset = null; }
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/history/get_actions', { account_name: accountName, pos: pos, offset: offset })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/history/get_transaction` 
-     * @param {string} id
-     * @param {number} blockNumHint
-     * @returns {Promise<GetTransactionResult>}
-    */
-    history_get_transaction(id, blockNumHint) {
-        if (blockNumHint === void 0) { blockNumHint = null; }
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/history/get_transaction', { id: id, block_num_hint: blockNumHint })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/history/get_key_accounts` 
-     * @param {string} publicKey
-     * @returns {Promise<GetKeyAccountsResult>}
-    */
-    history_get_key_accounts(publicKey) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/history/get_key_accounts', { public_key: publicKey })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /** 
-     * @summary Raw call to `/v1/history/get_controlled_accounts` 
-     * @param {string} controllingAccount
-     * @returns {Promise<GetControlledAccountsResult>}
-    */
-    history_get_controlled_accounts(controllingAccount) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch('/v1/history/get_controlled_accounts', { controlling_account: controllingAccount })];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });

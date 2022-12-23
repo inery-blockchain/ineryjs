@@ -12,8 +12,11 @@
     "opts": {
       "recurse": true,
       "destination": "./docs/",
-      "readme": "./README.md",
-      "template":"./template",
+      "readme": "./README-doc.md",
+      "template": "./node_modules/clean-jsdoc-theme",
+        "theme_opts": {
+            "default_theme": "dark"
+        },
       "tutorials":"./tutorials"
     }
   }
