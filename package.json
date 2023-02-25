@@ -7,6 +7,7 @@
     "doc": "jsdoc -c jsdoc.json",
     "generate-docs": "jsdoc --configure jsdoc.json --verbose",
     "build-web": "webpack --config webpack.config.js"
+    "rpc-example": "node ./example/json-rpc.mjs"
   },
   "author": "Inery",
   "license": "MIT",
@@ -17,6 +18,7 @@
   "homepage": "https://github.com/inery-blockchain/ineryjs",
   "dependencies": {
     "bn.js": "^5.2.0",
+    "dotenv": "^16.0.3",
     "elliptic": "^6.5.4",
     "hash.js": "^1.1.7",
     "node-fetch": "^2.6.7",
