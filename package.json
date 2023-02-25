@@ -6,7 +6,7 @@
   "scripts": {
     "doc": "jsdoc -c jsdoc.json",
     "generate-docs": "jsdoc --configure jsdoc.json --verbose",
-    "build-web": "webpack --config webpack.config.js"
+    "build-web": "webpack --config webpack.config.js",
     "rpc-example": "node ./example/json-rpc.mjs"
   },
   "author": "Inery",
